@@ -79,8 +79,8 @@ erDiagram
     MOVIE ||--o{ CHARACTER : "has characters"
     CHARACTER }o--|| PERSON : "played by"
     PERSON ||--o{ FILE : "has photos"
-    USER }o--o{ FAVORITEMOVIE : "favorites"
-    MOVIE ||--o{ FAVORITEMOVIE : "favorites"
+    USER }o--o{ FAVORITEMOVIES : "favorites"
+    MOVIE ||--o{ FAVORITEMOVIES : "favorites"
     COUNTRY ||--o{ MOVIE : "produced in"
     COUNTRY ||--o{ PERSON : "home country"
 

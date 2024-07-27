@@ -1,5 +1,5 @@
 # README #
-
+```mermaid
 erDiagram
     USER {
         int UserID PK
@@ -73,3 +73,5 @@ erDiagram
     CHARACTER }o--|| PERSON : "played by"
     PERSON ||--o{ FILE : "has photos"
     USER }o--o{ MOVIE : "favorite movies"
+
+```

@@ -2,67 +2,74 @@
 ```mermaid
 erDiagram
     USER {
-        int UserID PK
-        string Username
-        string FirstName
-        string LastName
-        string Email
-        string Password
-        int AvatarFileID FK
+        int id PK
+        string username
+        string first_name
+        string last_name
+        string email
+        string password
+        int avatar_id FK
     }
     
     FILE {
-        int FileID PK
-        string FileName
-        string MIMEType
-        string Key
-        string URL
+        int id PK
+        string file_name
+        string mime_type
+        string key
+        string url
     }
     
     MOVIE {
-        int MovieID PK
-        string Title
-        string Description
-        float Budget
-        date ReleaseDate
-        int Duration
-        int DirectorID FK
-        string Country
-        int PosterFileID FK
+        int id PK
+        string title
+        string description
+        float budget
+        date release_date
+        interval duration
+        int director_id FK
+        int country_id FK
+        int poster_id FK
     }
     
     CHARACTER {
-        int CharacterID PK
-        string Name
-        string Description
-        string Role
-        int ActorID FK
+        int id PK
+        string name
+        string description
+        string role
+        int movie_id FK
+        int actor_id FK
     }
     
     PERSON {
-        int PersonID PK
-        string FirstName
-        string LastName
-        string Biography
-        date DateOfBirth
-        string Gender
-        string Country
-        int PrimaryPhotoFileID FK
+        int id PK
+        string first_name
+        string last_name
+        string biography
+        date date_of_birth
+        string gender
+        int home_country_id FK
+        int primary_photo_id FK
     }
     
     GENRE {
-        int GenreID PK
-        string Name
+        int id PK
+        string name
     }
     
     FAVORITEMOVIES {
-        int UserID FK
-        int MovieID FK
+        int user_id FK
+        int movie_id FK
     }
     
     MOVIEGENRE {
-        int MovieID FK
-        int GenreID FK
+        int movie_id FK
+        int genre_id FK
+    }
+
+    Country {
+        int id PK
+        string name
+        string code
     }
     
     USER ||--o{ FILE : "has avatar"
@@ -72,6 +79,10 @@ erDiagram
     MOVIE ||--o{ CHARACTER : "has characters"
     CHARACTER }o--|| PERSON : "played by"
     PERSON ||--o{ FILE : "has photos"
-    USER }o--o{ MOVIE : "favorite movies"
+    <!-- USER }o--o{ MOVIE : "favorite movies" -->
+    USER }o--o{ FAVORITEMOVIE : "favorites"
+    MOVIE ||--o{ FAVORITEMOVIE : "favorites"
+    COUNTRY ||--o{ MOVIE : "produced in"
+    COUNTRY ||--o{ PERSON : "home country"
 
 ```

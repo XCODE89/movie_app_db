@@ -75,7 +75,7 @@ erDiagram
     USER ||--o{ FILE : "has avatar"
     MOVIE ||--o| PERSON : "directed by"
     MOVIE ||--o| FILE : "has poster"
-    MOVIE }o--o{ GENRE : "has genres"
+    MOVIE }o--o{ GENRE : "movie genre"
     MOVIE ||--o{ CHARACTER : "has characters"
     CHARACTER }o--|| PERSON : "played by"
     PERSON ||--o{ FILE : "has photos"

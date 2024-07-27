@@ -10,7 +10,7 @@ LEFT JOIN
 LEFT JOIN
     Movie m ON c.movie_id = m.id
 WHERE
-    p.role = 'actor' -- Asegúrate de filtrar solo los actores
+    p.role = 'actor'
     AND c.role IN ('leading', 'supporting', 'background')
 GROUP BY
     p.id, p.first_name, p.last_name;

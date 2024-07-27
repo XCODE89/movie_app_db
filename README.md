@@ -66,7 +66,7 @@ erDiagram
         int genre_id FK
     }
 
-    Country {
+    COUNTRY {
         int id PK
         string name
         string code

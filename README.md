@@ -66,7 +66,7 @@ erDiagram
         int genre_id FK
     }
 
-    COUNTRY {
+    Country {
         int id PK
         string name
         string code
@@ -79,8 +79,7 @@ erDiagram
     MOVIE ||--o{ CHARACTER : "has characters"
     CHARACTER }o--|| PERSON : "played by"
     PERSON ||--o{ FILE : "has photos"
-    USER }o--o{ FAVORITEMOVIES : "favorites"
-    MOVIE ||--o{ FAVORITEMOVIES : "favorites"
+    USER }o--o{ MOVIE : "favorite movies"
     COUNTRY ||--o{ MOVIE : "produced in"
     COUNTRY ||--o{ PERSON : "home country"
 
